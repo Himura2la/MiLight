@@ -1,0 +1,30 @@
+LimitlessLED RGBW
+-------------------
+41 00 55 - All Off
+42 00 55 - All On
+43 00 55 - Speed Down (One Step Slower Disco)
+44 00 55 - Speed Up (One Step Faster Disco)
+45 00 55 - Zone 1 On
+46 00 55 - Zone 1 Off
+47 00 55 - Zone 2 On
+48 00 55 - Zone 2 Off
+49 00 55 - Zone 3 On
+4A 00 55 - Zone 3 Off
+4B 00 55 - Zone 4 On
+4C 00 55 - Zone 4 Off
+4D 00 55 - One Step Disco Mode Up (20 Disco Modes)
+42 00 55 wait 100ms then send C2 00 55 - All Zones Change back to Warm White.
+45 00 55 wait 100ms then send C5 00 55 - Zone 1 Change back to Warm White.
+47 00 55 wait 100ms then send C7 00 55 - Zone 2 Change back to Warm White.
+49 00 55 wait 100ms then send C9 00 55 - Zone 3 Change back to Warm White.
+4B 00 55 wait 100ms then send CB 00 55 - Zone 4 Change back to Warm White.
+42 00 55 wait 100ms then send 4E XX 55 - Set All to Brightness XX (XX range is 0x02 to 0x18)
+45 00 55 wait 100ms then send 4E XX 55 - Set Zone 1 to Brightness XX (XX range is 0x02 to 0x18)
+47 00 55 wait 100ms then send 4E XX 55 - Set Zone 2 to Brightness XX (XX range is 0x02 to 0x18)
+49 00 55 wait 100ms then send 4E XX 55 - Set Zone 3 to Brightness XX (XX range is 0x02 to 0x18)
+4B 00 55 wait 100ms then send 4E XX 55 - Set Zone 4 to Brightness XX (XX range is 0x02 to 0x18)
+42 00 55 wait 100ms then send 40 XX 55 - Set All to Color XX (XX range is 0x00 to 0xFF)
+45 00 55 wait 100ms then send 40 XX 55 - Set Zone 1 to Color XX (XX range is 0x00 to 0xFF)
+47 00 55 wait 100ms then send 40 XX 55 - Set Zone 2 to Color XX (XX range is 0x00 to 0xFF)
+49 00 55 wait 100ms then send 40 XX 55 - Set Zone 3 to Color XX (XX range is 0x00 to 0xFF)
+4B 00 55 wait 100ms then send 40 XX 55 - Set Zone 4 to Color XX (XX range is 0x00 to 0xFF)
