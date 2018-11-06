@@ -28,31 +28,37 @@ def basic_light():
     all.brightness(21)
 
 
-def sunrise(stage):
-    if stage == 0:  # preparation, flashes
-        all.brightness(0)
-        second.color(155)
-        second.brightness(0)
-        all.off()
+def sunrise_prepare():
+    all.brightness(0)
+    second.color(155)
+    second.brightness(0)
+    all.off()
+
+
+def sunrise(stage, safe=True):
+    if stage == 0:
+        sunrise_prepare()
     elif stage == 1:
         night_mode(1)
     elif stage == 2:
         night_mode(2)
     elif stage == 3:
-        first.brightness(0)
+        if safe:
+            all.brightness(0)
+            second.off()
+        else:
+            first.brightness(0)
     elif stage == 4:
         second.brightness(0)
     elif stage == 5:
-        all.brightness(1)
         second.color(155)
+        all.brightness(1)
     elif 5 < stage < 27:
         brightness = (stage - 5)
         all.brightness(brightness)
-        print(stage, brightness)
     elif stage >= 27:
         second.white()
         all.brightness(21)
-        print(stage, 'full')
 
 
 for i in range(28):
