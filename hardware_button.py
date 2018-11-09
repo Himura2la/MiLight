@@ -23,6 +23,10 @@ def milight_cmd(cmd, val=b'\x00'):
 
 all_off = b'\x41'
 all_on = b'\x42'
+first_on = b'\x45'
+first_off = b'\x46'
+second_on = b'\x47'
+second_off = b'\x48'
 all_white = b'\xc2'
 brightness = b'\x4e'
 color = b'\x40'
@@ -61,10 +65,15 @@ def button_pressed():
 
 def button_long_pressed():
     print('bulbs -> sunset')
-    milight_cmd(all_on)
-    sleep_ms(100)
-    milight_cmd(brightness, '\x02')
-    sleep_ms(100)
+    milight_cmd(all_on);              sleep_ms(100)
+    milight_cmd(brightness, b'\x02'); sleep_ms(100)
+
+    milight_cmd(all_on);         sleep_ms(100)
+    milight_cmd(color, b'\x9b'); sleep_ms(100)
+
+    milight_cmd(all_on);              sleep_ms(100)
+    milight_cmd(brightness, b'\x02'); sleep_ms(100)
+    
     milight_cmd(all_off)
     bulbs_on = False
 
